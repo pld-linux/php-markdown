@@ -1,15 +1,16 @@
 %define		php_min_version 5.0.0
 Summary:	Markdown text-to-html converter
 Name:		php-markdown
-Version:	1.0.1n
+Version:	1.0.1o
 Release:	1
 License:	BSD-Style License
 Group:		Development/Languages/PHP
-Source0:	http://pear.michelf.com/get/%{name}-%{version}.tgz
-# Source0-md5:	371cc451cd8776758924309d9fbcad06
-URL:		http://pear.michelf.com/package/Markdown/
+Source0:	http://littoral.michelf.ca/code/php-markdown/%{name}-%{version}.zip
+# Source0-md5:	fccaa1285c27a82bea15385591856250
+URL:		http://michelf.ca/projects/php-markdown/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.610
+BuildRequires:	unzip
 Requires:	php-common >= 4:%{php_min_version}
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -28,7 +29,8 @@ text. If you are using text-formatted email, you already know some
 part of the syntax.
 
 %prep
-%setup -qn Markdown-%{version}
+%setup -qc
+mv "PHP Markdown %{version}"/* .
 
 %install
 rm -rf $RPM_BUILD_ROOT
