@@ -1,8 +1,9 @@
 %define		php_min_version 5.0.0
+%include	/usr/lib/rpm/macros.php
 Summary:	Markdown text-to-html converter
 Name:		php-markdown
 Version:	1.0.1o
-Release:	1
+Release:	2
 License:	BSD-Style License
 Group:		Development/Languages/PHP
 Source0:	http://littoral.michelf.ca/code/php-markdown/%{name}-%{version}.zip
@@ -11,9 +12,13 @@ URL:		http://michelf.ca/projects/php-markdown/
 BuildRequires:	rpm-php-pearprov >= 4.4.2-11
 BuildRequires:	rpmbuild(macros) >= 1.610
 BuildRequires:	unzip
-Requires:	php-common >= 4:%{php_min_version}
+Requires:	php(core) >= %{php_min_version}
+Requires:	php(pcre)
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_noautopear	pear
+%define		_noautoreq	%{?_noautophp} %{?_noautopear}
 
 %description
 PHP Markdown is a port to PHP of the Markdown program written by John
