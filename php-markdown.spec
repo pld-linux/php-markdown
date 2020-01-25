@@ -1,5 +1,4 @@
 %define		php_min_version 5.0.0
-%include	/usr/lib/rpm/macros.php
 Summary:	Markdown text-to-html converter
 Name:		php-markdown
 Version:	1.0.1o
